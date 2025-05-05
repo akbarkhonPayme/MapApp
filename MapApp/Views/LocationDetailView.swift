@@ -7,12 +7,15 @@
 
 import SwiftUI
 import MapKit
+import LocationsServiceKit
 
 struct LocationDetailView: View {
     
     @EnvironmentObject private var vm: LocationsViewModel
-    
     let location: Location
+
+    private let detailSpan = MKCoordinateSpan(latitudeDelta: 0.05,
+                                              longitudeDelta: 0.05)
     
     var body: some View {
         ScrollView {
@@ -24,7 +27,7 @@ struct LocationDetailView: View {
                     
                     Divider()
                     
-                    describtionSection
+                    descriptionSection
                     
                     Divider()
                     
@@ -40,15 +43,32 @@ struct LocationDetailView: View {
     }
 }
 
-extension LocationDetailView {
-    private var imageSection: some View {
+private extension LocationDetailView {
+    
+    var imageSection: some View {
         TabView {
-            ForEach(location.imageNames, id: \.self) {
-                Image($0)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
-                    .clipped()
+            ForEach(location.imageURLs, id: \.self) { url in
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        Color.gray
+                            .overlay(ProgressView())
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    case .failure:
+                        Image(systemName: "xmark.octagon")
+                            .font(.largeTitle)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+                .frame(
+                  width: UIScreen.main.bounds.width,
+                  height: 500
+                )
+                .clipped()
             }
         }
         .frame(height: 500)
@@ -56,7 +76,7 @@ extension LocationDetailView {
         .tabViewStyle(.page)
     }
     
-    private var titleSection: some View {
+    var titleSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(location.name)
                 .font(.largeTitle)
@@ -67,56 +87,58 @@ extension LocationDetailView {
         }
     }
     
-    private var describtionSection: some View {
+    var descriptionSection: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(location.description)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
             
-                if let url = URL(string: location.link) {
-                
-                Link("Read more on Wikipedia", destination: url)
-                        .font(.headline)
-                        .tint(.blue)
-            }
+            Link("Read more on Wikipedia", destination: location.link)
+                .font(.headline)
+                .tint(.blue)
         }
     }
     
-    private var mapLayer: some View {
-        
-        Map(coordinateRegion: .constant(MKCoordinateRegion(
-            center: location.coordinates,
-            span: vm.mapSpan)),
-            annotationItems: [location]) { location in
-            MapAnnotation(coordinate: location.coordinates) {
+    var mapLayer: some View {
+        Map(
+            coordinateRegion: .constant(
+                MKCoordinateRegion(
+                    center: location.coordinates,
+                    span: detailSpan
+                )
+            ),
+            annotationItems: [location]
+        ) { loc in
+            MapAnnotation(coordinate: loc.coordinates) {
                 LocationMapAnnotationView()
                     .shadow(radius: 10)
             }
         }
-            .allowsHitTesting(false)
-            .aspectRatio(1, contentMode: .fit)
-            .clipShape(RoundedRectangle(cornerRadius: 30))
+        .allowsHitTesting(false)
+        .aspectRatio(1, contentMode: .fit)
+        .clipShape(RoundedRectangle(cornerRadius: 30))
     }
     
-    private var backButton: some View {
+    var backButton: some View {
         Button {
             vm.sheetLocation = nil
         } label: {
             Image(systemName: "xmark")
                 .font(.headline)
                 .padding(16)
-                .foregroundStyle(Color.primary)
+                .foregroundStyle(.primary)
                 .background(.thickMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadow(radius: 4)
-                
         }
         .padding()
     }
 }
 
-#Preview {
-    LocationDetailView(location: LocationsDataService.locations.first!)
-        .environmentObject(LocationsViewModel())
-
-}
+//#Preview {
+//    // Use the old static service just for previews:
+//    let sampleLocation = LocationsService.locations.first!
+//    
+//    LocationDetailView(location: sampleLocation)
+//        .environmentObject(LocationsViewModel())
+//}

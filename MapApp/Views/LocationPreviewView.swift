@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocationsServiceKit
 
 struct LocationPreviewView: View {
     
@@ -39,14 +40,32 @@ struct LocationPreviewView: View {
 extension LocationPreviewView {
     private var imageSection: some View {
         ZStack {
-            if let imageNames = location.imageNames.first {
-                Image(imageNames)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                if let url = location.imageURLs.first {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .empty:
+                            Color.gray
+                                .frame(width: 100, height: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        case .failure:
+                            Image(systemName: "photo")
+                                .frame(width: 100, height: 100)
+                        @unknown default:
+                            EmptyView()
+                        }
+                    }
+                } else {
+                    Color.gray
+                        .frame(width: 100, height: 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
             }
-        }
         .padding(6)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -86,8 +105,8 @@ extension LocationPreviewView {
         .buttonStyle(BorderedButtonStyle())
     }
 }
-
-#Preview {
-    LocationPreviewView(location: LocationsDataService.locations.first!)
-        .environmentObject(LocationsViewModel())
-}
+//
+//#Preview {
+//    LocationPreviewView(location: LocationsService.locations.first!)
+//        .environmentObject(LocationsViewModel())
+//}

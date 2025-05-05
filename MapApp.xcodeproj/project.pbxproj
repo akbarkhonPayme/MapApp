@@ -3,30 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BD0F47332C73474B007B8F0B /* MapAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F47322C73474B007B8F0B /* MapAppApp.swift */; };
 		BD0F473A2C73474C007B8F0B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0F47392C73474C007B8F0B /* Preview Assets.xcassets */; };
 		BD0F47412C734803007B8F0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0F47402C734802007B8F0B /* Assets.xcassets */; };
-		BD0F47462C7348A4007B8F0B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F47452C7348A4007B8F0B /* Location.swift */; };
-		BD0F47492C73494D007B8F0B /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F47482C73494D007B8F0B /* LocationsDataService.swift */; };
 		BD0F474B2C735022007B8F0B /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F474A2C735022007B8F0B /* LocationsView.swift */; };
 		BD0F474D2C735229007B8F0B /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F474C2C735229007B8F0B /* LocationsViewModel.swift */; };
 		BD0F474F2C7364EE007B8F0B /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F474E2C7364EE007B8F0B /* LocationsListView.swift */; };
 		BD0F47512C74A3F6007B8F0B /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F47502C74A3F6007B8F0B /* LocationPreviewView.swift */; };
 		BD0F47532C74AED8007B8F0B /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F47522C74AED8007B8F0B /* LocationMapAnnotationView.swift */; };
 		BDD8FDAB2C750444000DCD1A /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FDAA2C750444000DCD1A /* LocationDetailView.swift */; };
+		FC4FE3162DC3A2E3004DE234 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC4FE3152DC3A2E3004DE234 /* Alamofire */; };
+		FC4FE31E2DC49E7A004DE234 /* LocationsServiceKit in Frameworks */ = {isa = PBXBuildFile; productRef = FC4FE31D2DC49E7A004DE234 /* LocationsServiceKit */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC5B5D452DC4CE8D00A26FFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD0F47272C73474B007B8F0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD0F472E2C73474B007B8F0B;
+			remoteInfo = MapApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC4FE31A2DC3AD99004DE234 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BD0F472F2C73474B007B8F0B /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0F47322C73474B007B8F0B /* MapAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppApp.swift; sourceTree = "<group>"; };
 		BD0F47392C73474C007B8F0B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD0F47402C734802007B8F0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD0F47452C7348A4007B8F0B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		BD0F47482C73494D007B8F0B /* LocationsDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
 		BD0F474A2C735022007B8F0B /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		BD0F474C2C735229007B8F0B /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		BD0F474E2C7364EE007B8F0B /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
@@ -34,10 +55,24 @@
 		BD0F47522C74AED8007B8F0B /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
 		BD6A88F72C7605CC00DD471C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD8FDAA2C750444000DCD1A /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		FC5B5D412DC4CE8D00A26FFF /* MapAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FC5B5D422DC4CE8D00A26FFF /* MapAppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MapAppTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BD0F472C2C73474B007B8F0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC4FE31E2DC49E7A004DE234 /* LocationsServiceKit in Frameworks */,
+				FC4FE3162DC3A2E3004DE234 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC5B5D3E2DC4CE8D00A26FFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				BD0F47312C73474B007B8F0B /* MapApp */,
+				FC5B5D422DC4CE8D00A26FFF /* MapAppTests */,
 				BD0F47302C73474B007B8F0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				BD0F472F2C73474B007B8F0B /* MapApp.app */,
+				FC5B5D412DC4CE8D00A26FFF /* MapAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,10 +105,8 @@
 			children = (
 				BD6A88F72C7605CC00DD471C /* Info.plist */,
 				BD0F47322C73474B007B8F0B /* MapAppApp.swift */,
-				BD0F47472C734932007B8F0B /* DataServices */,
 				BD0F47422C734868007B8F0B /* Views */,
 				BD0F47432C73486F007B8F0B /* ViewModels */,
-				BD0F47442C734879007B8F0B /* Models */,
 				BD0F47382C73474C007B8F0B /* Preview Content */,
 			);
 			path = MapApp;
@@ -106,22 +141,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		BD0F47442C734879007B8F0B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BD0F47452C7348A4007B8F0B /* Location.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		BD0F47472C734932007B8F0B /* DataServices */ = {
-			isa = PBXGroup;
-			children = (
-				BD0F47482C73494D007B8F0B /* LocationsDataService.swift */,
-			);
-			path = DataServices;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +151,7 @@
 				BD0F472B2C73474B007B8F0B /* Sources */,
 				BD0F472C2C73474B007B8F0B /* Frameworks */,
 				BD0F472D2C73474B007B8F0B /* Resources */,
+				FC4FE31A2DC3AD99004DE234 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +162,29 @@
 			productReference = BD0F472F2C73474B007B8F0B /* MapApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FC5B5D402DC4CE8D00A26FFF /* MapAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC5B5D472DC4CE8D00A26FFF /* Build configuration list for PBXNativeTarget "MapAppTests" */;
+			buildPhases = (
+				FC5B5D3D2DC4CE8D00A26FFF /* Sources */,
+				FC5B5D3E2DC4CE8D00A26FFF /* Frameworks */,
+				FC5B5D3F2DC4CE8D00A26FFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC5B5D462DC4CE8D00A26FFF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FC5B5D422DC4CE8D00A26FFF /* MapAppTests */,
+			);
+			name = MapAppTests;
+			packageProductDependencies = (
+			);
+			productName = MapAppTests;
+			productReference = FC5B5D412DC4CE8D00A26FFF /* MapAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -149,11 +192,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					BD0F472E2C73474B007B8F0B = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					FC5B5D402DC4CE8D00A26FFF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = BD0F472E2C73474B007B8F0B;
 					};
 				};
 			};
@@ -166,11 +213,16 @@
 				Base,
 			);
 			mainGroup = BD0F47262C73474B007B8F0B;
+			packageReferences = (
+				FC4FE3142DC3A2E3004DE234 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FC4FE31C2DC49E7A004DE234 /* XCLocalSwiftPackageReference "../../Desktop/Projects/LocationsServiceKit" */,
+			);
 			productRefGroup = BD0F47302C73474B007B8F0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BD0F472E2C73474B007B8F0B /* MapApp */,
+				FC5B5D402DC4CE8D00A26FFF /* MapAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -185,6 +237,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC5B5D3F2DC4CE8D00A26FFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -192,19 +251,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0F47492C73494D007B8F0B /* LocationsDataService.swift in Sources */,
 				BD0F47532C74AED8007B8F0B /* LocationMapAnnotationView.swift in Sources */,
 				BD0F474F2C7364EE007B8F0B /* LocationsListView.swift in Sources */,
 				BD0F47512C74A3F6007B8F0B /* LocationPreviewView.swift in Sources */,
 				BD0F474D2C735229007B8F0B /* LocationsViewModel.swift in Sources */,
-				BD0F47462C7348A4007B8F0B /* Location.swift in Sources */,
 				BD0F47332C73474B007B8F0B /* MapAppApp.swift in Sources */,
 				BDD8FDAB2C750444000DCD1A /* LocationDetailView.swift in Sources */,
 				BD0F474B2C735022007B8F0B /* LocationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FC5B5D3D2DC4CE8D00A26FFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC5B5D462DC4CE8D00A26FFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD0F472E2C73474B007B8F0B /* MapApp */;
+			targetProxy = FC5B5D452DC4CE8D00A26FFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BD0F473B2C73474C007B8F0B /* Debug */ = {
@@ -386,6 +458,44 @@
 			};
 			name = Release;
 		};
+		FC5B5D482DC4CE8D00A26FFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3N5GS86L85;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MapAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MapApp";
+			};
+			name = Debug;
+		};
+		FC5B5D492DC4CE8D00A26FFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3N5GS86L85;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.MapAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MapApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,7 +517,46 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		FC5B5D472DC4CE8D00A26FFF /* Build configuration list for PBXNativeTarget "MapAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC5B5D482DC4CE8D00A26FFF /* Debug */,
+				FC5B5D492DC4CE8D00A26FFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FC4FE31C2DC49E7A004DE234 /* XCLocalSwiftPackageReference "../../Desktop/Projects/LocationsServiceKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../Desktop/Projects/LocationsServiceKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC4FE3142DC3A2E3004DE234 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC4FE3152DC3A2E3004DE234 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC4FE3142DC3A2E3004DE234 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		FC4FE31D2DC49E7A004DE234 /* LocationsServiceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationsServiceKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD0F47272C73474B007B8F0B /* Project object */;
 }

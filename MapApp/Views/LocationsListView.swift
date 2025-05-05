@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocationsServiceKit
 
 struct LocationsListView: View {
     
@@ -31,12 +32,26 @@ extension LocationsListView {
     
     private func listRowView(location: Location) -> some View {
         HStack {
-            if let imageName = location.imageNames.first {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 45, height: 45)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            if let url = location.imageURLs.first {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        Color.gray
+                            .frame(width: 45, height: 45)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 45, height: 45)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    case .failure:
+                        Image(systemName: "photo")
+                            .frame(width: 45, height: 45)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
             }
             VStack(alignment: .leading) {
                 Text(location.name)

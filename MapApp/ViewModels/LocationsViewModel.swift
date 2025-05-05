@@ -7,68 +7,74 @@
 
 import SwiftUI
 import MapKit
+import LocationsServiceKit
 
 class LocationsViewModel: ObservableObject {
-    // All loaded locations
-    @Published var locations: [Location] 
-    
-    // Current location on map
-    @Published var mapLocation: Location {
-        didSet {
-            updateMapRegion(for: mapLocation)
-        }
-    }
-    // current region on map
+    // MARK: – State
+    @Published var locations: [Location] = []
+    @Published var mapLocation: Location?
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-    
     @Published var showLocationsList: Bool = false
-    
     @Published var sheetLocation: Location? = nil
     
+    // MARK: – Private
+    private let service = LocationsService()
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+
+    // MARK: – Init
     init() {
-        let locations  = LocationsDataService.locations
-        self.locations = locations
-        self.mapLocation = locations.first!
-        
-        self.updateMapRegion(for: locations.first!)
+        fetchLocations()
     }
     
-    private func updateMapRegion(for location: Location) {
-        withAnimation(.easeInOut) {
-            mapRegion = MKCoordinateRegion(
-                center: location.coordinates,
-                span: mapSpan)
+    // MARK: – Networking
+    private func fetchLocations() {
+        Task {
+            do {
+                let locs = try await service.fetchLocations()
+                DispatchQueue.main.async {
+                    self.locations = locs
+                    if let first = locs.first {
+                        self.setMapLocation(to: first)
+                    }
+                }
+            } catch {
+                print("❌ Failed loading locations:", error)
+            }
         }
     }
     
+    // MARK: – Helpers
+    private func setMapLocation(to location: Location) {
+        mapLocation = location
+        mapRegion = MKCoordinateRegion(
+            center: location.coordinates,
+            span: mapSpan
+        )
+    }
+    
+    // MARK: – User Actions
     func toggleLocationsList() {
-        withAnimation(.easeInOut) {
-            showLocationsList = !showLocationsList
-        }
+        withAnimation { showLocationsList.toggle() }
     }
     
     func showNextLocation(location: Location) {
-        withAnimation(.easeInOut) {
-            mapLocation = location
+        withAnimation {
+            setMapLocation(to: location)
             showLocationsList = false
         }
     }
     
     func nextButtonPressed() {
-        guard let currentIndex = locations.firstIndex(where: {$0 == mapLocation}) else {
-            print( "Could not find current index in location array! Never gonna happen")
-            return
-        }
+        guard
+            let current = mapLocation,
+            let idx = locations.firstIndex(of: current)
+        else { return }
         
-        let nextIndex = currentIndex + 1
+        let nextIndex = locations.index(after: idx)
+        let next = nextIndex < locations.endIndex
+            ? locations[nextIndex]
+            : locations.first!
         
-        guard locations.indices.contains(nextIndex) else {
-            guard let firstLocation = locations.first else { return }
-            showNextLocation(location: firstLocation)
-            return
-        }
-        let nextLocation = locations[nextIndex]
-        showNextLocation(location: nextLocation)
+        showNextLocation(location: next)
     }
 }
