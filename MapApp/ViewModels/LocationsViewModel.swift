@@ -78,3 +78,5 @@ class LocationsViewModel: ObservableObject {
         showNextLocation(location: next)
     }
 }
+
+// I am writing this message to test out the git tasks I have been given, please ignore
