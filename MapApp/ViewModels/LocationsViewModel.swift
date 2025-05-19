@@ -7,7 +7,8 @@
 
 import SwiftUI
 import MapKit
-import LocationsServiceKit
+import LocationsServiceInterface
+import LocationsServiceImplementation
 
 class LocationsViewModel: ObservableObject {
     // MARK: – State

@@ -6,7 +6,8 @@
 //
 
 import XCTest
-import LocationsServiceKit
+import LocationsServiceInterface
+import LocationsServiceImplementation
 
 final class LocationsServiceTest: XCTestCase {
 

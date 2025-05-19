@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import LocationsServiceKit
+import LocationsServiceInterface
+import LocationsServiceImplementation
 
 struct LocationPreviewView: View {
     

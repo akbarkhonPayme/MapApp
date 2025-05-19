@@ -7,7 +7,8 @@
 
 import SwiftUI
 import MapKit
-import LocationsServiceKit
+import LocationsServiceInterface
+import LocationsServiceImplementation
 
 struct LocationDetailView: View {
     

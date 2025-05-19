@@ -17,7 +17,8 @@
 		BD0F47532C74AED8007B8F0B /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0F47522C74AED8007B8F0B /* LocationMapAnnotationView.swift */; };
 		BDD8FDAB2C750444000DCD1A /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD8FDAA2C750444000DCD1A /* LocationDetailView.swift */; };
 		FC4FE3162DC3A2E3004DE234 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FC4FE3152DC3A2E3004DE234 /* Alamofire */; };
-		FC4FE31E2DC49E7A004DE234 /* LocationsServiceKit in Frameworks */ = {isa = PBXBuildFile; productRef = FC4FE31D2DC49E7A004DE234 /* LocationsServiceKit */; };
+		FC8306362DDB0BA700139A70 /* LocationsServiceImplementation in Frameworks */ = {isa = PBXBuildFile; productRef = FC8306352DDB0BA700139A70 /* LocationsServiceImplementation */; };
+		FC8306382DDB0BAA00139A70 /* LocationsServiceInterface in Frameworks */ = {isa = PBXBuildFile; productRef = FC8306372DDB0BAA00139A70 /* LocationsServiceInterface */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC4FE31E2DC49E7A004DE234 /* LocationsServiceKit in Frameworks */,
+				FC8306362DDB0BA700139A70 /* LocationsServiceImplementation in Frameworks */,
 				FC4FE3162DC3A2E3004DE234 /* Alamofire in Frameworks */,
+				FC8306382DDB0BAA00139A70 /* LocationsServiceInterface in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 			children = (
 				BD0F47312C73474B007B8F0B /* MapApp */,
 				FC5B5D422DC4CE8D00A26FFF /* MapAppTests */,
+				FC8306342DDB0BA700139A70 /* Frameworks */,
 				BD0F47302C73474B007B8F0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,6 +142,13 @@
 				BD0F474C2C735229007B8F0B /* LocationsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FC8306342DDB0BA700139A70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,7 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MapApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 3N5GS86L85;
+				DEVELOPMENT_TEAM = 8U3A9S3C64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapApp/Info.plist;
@@ -436,7 +446,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MapApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 3N5GS86L85;
+				DEVELOPMENT_TEAM = 8U3A9S3C64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapApp/Info.plist;
@@ -552,9 +562,15 @@
 			package = FC4FE3142DC3A2E3004DE234 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		FC4FE31D2DC49E7A004DE234 /* LocationsServiceKit */ = {
+		FC8306352DDB0BA700139A70 /* LocationsServiceImplementation */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = LocationsServiceKit;
+			package = FC4FE31C2DC49E7A004DE234 /* XCLocalSwiftPackageReference "../../Desktop/Projects/LocationsServiceKit" */;
+			productName = LocationsServiceImplementation;
+		};
+		FC8306372DDB0BAA00139A70 /* LocationsServiceInterface */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC4FE31C2DC49E7A004DE234 /* XCLocalSwiftPackageReference "../../Desktop/Projects/LocationsServiceKit" */;
+			productName = LocationsServiceInterface;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
